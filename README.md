@@ -1,1 +1,7 @@
 # A-Deep-Learning-Based-Technical-Alpha-Factor
+
+## Key Takeaways
+
+- The factor is identified and computed using an LSTM deep neural network. The network receives input from a stock's profile, which comprises a recent trend relative to the market. This profile is made up of a $1\times10\times7$ three-dimensional tensor. The tensor contains time-series data of seven features: standardized (relative) volume, amount, turnover, open price change, high price change, low price change, and close price change, over the most recent 10 transaction days (2 weeks). The output is a predicted value of the stock's standardized excess return. This method closely resembles the work of technical analysts, which examines a stock's recent price trend to predict future performance.
+- The network was trained using the market data of all tickers (about 5000 in total) in the Chinese A-share market from November 1, 2021, to March 1, 2022. It was trained to predict their daily forward return based on their profiles. The score output by the trained network is used as the alpha factor with daily frequency.
+- I tested the factor's explainability to return and its stability from March 1, 2022, to May 1, 2022. The factor is quite effective with an **average information coefficient of 0.07**, an **information ratio of 0.91**, good monotonicity in stock selection, and **annualized Sharpe ratios of 2.66 for a long portfolio** (14.48 for a long-short portfolio).
